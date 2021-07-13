@@ -8,11 +8,12 @@ const display = document.getElementById('output');
 
 // initialize variables and arrays
 
-let x = 0;
-let y = 0;
-let firstNumber = [];
-let secondNumber = [];
+let x;
+let y;
+let runningTotal;
+let number = [];
 let sign = "";
+let total;
 
 // Basic math functions 
 
@@ -48,35 +49,42 @@ function operate(x, sign, y) {
         }
 }
 
-// Function to display first number
+// Function to capture a number and store it in a variable
 
-function getFirstNumber() {
-    firstNumber.push(x);
-    output.textContent = firstNumber.join("");
-    x = Number(output.textContent);
-    return x;
+function getNumber() {
+    number.push(num);
+    output.textContent = number.join("")
+    if (sign === "") {
+        x = Number(output.textContent);
+        return x;
+    } else if (sign) {
+        y = Number(output.textContent);
+        return y;
+    }
 }
 
-// Function to display second number
+// Function to get the total
 
-function getSecondNumber() {
-    secondNumber.push(y);
-    output.textContent = secondNumber.join("");
-    y = Number(output.textContent);
-    return y;
+function getTotal() {
+    if (!runningTotal) {
+        total = x;
+        runningTotal = operate(total, sign, y);
+        output.TextContent = runningTotal;
+        return runningTotal;
+    } else if (runningTotal) {
+        total = runningTotal;
+        runningTotal = operate(total, sign, y);
+        output.TextContent = runningTotal;
+        return runningTotal;
+    }
 }
 
 // Add event listener for numbers
 
 [...numButtons].forEach((numBtn) => {
     numBtn.addEventListener('click', event => {
-        if (sign === "") {
-            x = Number(numBtn.value);
-            getFirstNumber(x);
-        } else {
-            y = Number(numBtn.value);
-            getSecondNumber(y);
-        }
+        num = Number(numBtn.value);
+        getNumber(x);
     });    
 });   
 
@@ -84,28 +92,30 @@ function getSecondNumber() {
 
 [...signButtons].forEach((signBtn) => {
     signBtn.addEventListener('click', event => {
-        sign = signBtn.value;
+        number = [];
+        sign = signBtn.value
         return sign;
-    })
-})
+    });
+});
 
 // Add event listener for equals button
 
 equals.addEventListener('click', event => {
-   operate(x, sign, y);
-})
+    number = [];
+    getTotal();
+});
 
 // // Add event listener for clear button
 
 clear.addEventListener('click', event => {
-    x = 0;
-    y = 0;
+    x = null;
+    y = null;
+    total = null;
     firstNumber = [];
     secondNumber = [];
     sign = "";
     output.textContent = "00000";
 });
-
 
 
 
