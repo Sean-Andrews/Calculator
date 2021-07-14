@@ -20,6 +20,7 @@ let unaryToggle = false;
 let decimalToggle = false;
 let runningTotal = false;
 let isPercent = false;
+let lastEquals = false;
 let total;
 
 // Basic math functions 
@@ -61,6 +62,7 @@ function operate(x, sign, y) {
 // Function to capture a number and store it in a variable
 
 function getNumber(digit) {
+    lastEquals = false;
     if (!isSign) {
         number.push(digit);
         let strNum = number.join('');
@@ -76,6 +78,7 @@ function getNumber(digit) {
         y = Number(display.textContent);
         return y;
     }    
+
 }
 
 // Function to get the total
@@ -89,19 +92,7 @@ function getTotal() {
     }    
 }
 
-// function getTotal() {
-//     if (!runningTotal) {
-//         total = x;
-//         runningTotal = operate(total, sign, y);
-//         output.TextContent = runningTotal.toFixed(2);
-//         return runningTotal;
-//     } else if (runningTotal) {
-//         total = runningTotal;
-//         runningTotal = operate(total, sign, y);
-//         output.TextContent = runningTotal.toFixed(2);
-//         return runningTotal;
-//     }
-// }
+// Function to use keyboard {
 
 // Add event listener for numbers
 
@@ -124,6 +115,7 @@ decimal.addEventListener('click', () => {
 // Add event listener for unary operator button
 
 unary.addEventListener('click', () => {
+    if (number.length === 0) return;
     if (number[0] === "-") {
         number.shift();
         getNumber();
@@ -146,7 +138,10 @@ percent.addEventListener('click', () => {
     signBtn.addEventListener('click', () => {
         isPercent = false;
         decimalToggle = false;
-        if (isSign) {
+        if (lastEquals) {
+            sign = signBtn.value;
+            return sign;
+        } else if (isSign) {
             getTotal();
             number.length = 0;
             sign = signBtn.value;
@@ -170,6 +165,7 @@ equals.addEventListener('click', () => {
     number.length = 0;
     console.log(isSign, x);
     getTotal();
+    lastEquals = true;
 });
 
 // // // Add event listener for clear button
@@ -186,5 +182,5 @@ clear.addEventListener('click', () => {
     unaryToggle = false;
     isPercent = false;
     runningTotal = false;
+    lastEquals = false;
 });
-
