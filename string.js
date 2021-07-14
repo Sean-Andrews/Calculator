@@ -84,10 +84,8 @@ function getTotal() {
     if (!runningTotal) {
         operate(x, sign, y);
         runningTotal = true;
-        console.log(x, sign, y);
     } else if (runningTotal) {
         operate(total, sign, y);
-        console.log(total, sign, y);
     }    
 }
 
@@ -165,7 +163,12 @@ percent.addEventListener('click', () => {
 // // Add event listener for equals button
 
 equals.addEventListener('click', () => {
+    if (isSign === false || x === undefined || y === undefined) {;
+        console.log(isSign, x);
+        return;
+    }
     number.length = 0;
+    console.log(isSign, x);
     getTotal();
 });
 
