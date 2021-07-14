@@ -74,8 +74,8 @@ Calculator Styles
 }
 
 #display {
-    font-size: 60px;
-    padding: 5px;
+    font-size: 40px;
+    padding: 15px;
     border: 1px solid black;
     background-color:rgb(72, 164, 187);
     margin: 20px;
@@ -85,6 +85,7 @@ Calculator Styles
 
 #display p {
     text-align: right;
+    overflow: clip;
 }
 
 /*====================================================
@@ -111,12 +112,32 @@ Button Styles
     box-shadow: 0 0 3px rgb(195, 195, 196);
 }
 
+.btn:hover {
+    background-color:rgb(147, 147, 150)
+}
+
+.btn:active {
+    background-color: rgb(25, 78, 112);
+    box-shadow: 0 0 10px rgb(14, 43, 61);
+    border: 2px solid rgb(25, 78, 112);
+}
+
 #clear-btn {
     grid-area: 1 / 1;
 }
 
 #equals-btn {
     grid-area: 5 / 4;
+    background-color: rgb(211, 148, 31);
+    border: 2px solid rgb(211, 148, 31);
+}
+
+#equals-btn:hover {
+    background-color: rgb(192, 144, 56);
+}
+
+#equals-btn:active {
+    background-color: rgb(243, 163, 13);
 }
 
 #percent-btn {
@@ -167,8 +188,10 @@ Button Styles
     grid-area: 2 / 3;
 }
 
-.item-decimal {
+#item-decimal {
     grid-area: 5 / 3;
+    font-size: 50px;
+    justify-content: center;
 }
 
 .item-divide {
