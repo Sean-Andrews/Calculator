@@ -114,7 +114,7 @@ clear.addEventListener('click', event => {
     firstNumber = [];
     secondNumber = [];
     sign = "";
-    output.textContent = "00000";
+    output.textContent = "0";
 });
 
 

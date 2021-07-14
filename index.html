@@ -4,34 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <div id="title">
-        <h1>Calculator</h1>
-    </div>
     <div id="calculator">
         <div id="display">
-            <p id="output">00000</p>
+            <p id="output">0</p>
         </div>
-        <div class="body">
-            <button class="num-btn" type="button" value="9">9</button>
-            <button class="num-btn" type="button" value="8">8</button>
-            <button class="num-btn" type="button" value="7">7</button>
-            <button class="num-btn" type="button" value="6">6</button>
-            <button class="num-btn" type="button" value="5">5</button>
-            <button class="num-btn" type="button" value="4">4</button>
-            <button class="num-btn" type="button" value="3">3</button>
-            <button class="num-btn" type="button" value="2">2</button>
-            <button class="num-btn" type="button" value="1">1</button>
-            <button class="num-btn" type="button" value="0">0</button>
-            <button class="sign-btn" type="button" value=+>+</button>
-            <button class="sign-btn" type="button" value="-">-</button>
-            <button class="sign-btn" type="button" value="*">*</button>
-            <button class="sign-btn" type="button" value="/">/</button>
+        <div class="calculator-body">
+            <button class="num-btn btn item9" type="button" value="9">9</button>
+            <button class="num-btn btn item8" type="button" value="8">8</button>
+            <button class="num-btn btn item7" type="button" value="7">7</button>
+            <button class="num-btn btn item6" type="button" value="6">6</button>
+            <button class="num-btn btn item5" type="button" value="5">5</button>
+            <button class="num-btn btn item4" type="button" value="4">4</button>
+            <button class="num-btn btn item3" type="button" value="3">3</button>
+            <button class="num-btn btn item2" type="button" value="2">2</button>
+            <button class="num-btn btn item1" type="button" value="1">1</button>
+            <button class="num-btn btn item0" type="button" value="0">0</button>
+            <button class="num-btn btn item-decimal" type="button" value=".">.</button>
+            <button class="btn" id="unary-btn" type="button" value="+/-">+/-</button>
+            <button class="btn" id="percent-btn" type="button" value="%">%</button>
+            <button class="sign-btn btn item-plus" type="button" value=+>+</button>
+            <button class="sign-btn btn item-minus" type="button" value="-">-</button>
+            <button class="sign-btn btn item-times" type="button" value="*">*</button>
+            <button class="sign-btn btn item-divide" type="button" value="/">/</button>
             <button class="btn" id="equals-btn" type="button" value="=">=</button>
-            <button class="btn" id="clear-btn" type="button">clear</button>
+            <button class="btn" id="clear-btn" type="button">AC</button>
         </div>
     </div>
 
