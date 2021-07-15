@@ -59,8 +59,10 @@ body, html {
 }
 
 body {
-    background-image: url(assets/Calculator-background.jpeg);
-    background-size: cover;
+    background-image: radial-gradient(rgb(25, 78, 112) 30%, transparent 20%), radial-gradient(rgb(72, 164, 187) 20%, transparent 20%);
+    background-color: #bdbbbb;
+    background-position: 0 0, 50px 50px;
+    background-size: 100px 100px;
     overflow: hidden;
 }
 
